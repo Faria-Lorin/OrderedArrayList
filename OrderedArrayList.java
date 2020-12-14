@@ -59,7 +59,7 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     else{
       T temp = super.get(index);
       super.remove(index);
-      super.add(element);
+      add(element);
       return temp;
     }
   }
