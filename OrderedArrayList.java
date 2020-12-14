@@ -9,4 +9,12 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     }
     return sortedIndex;
   }
+
+  public boolean add(T element){
+    add(sortedIndex, element);
+    if (this.get(sortedIndex) == element){
+      return true;
+    }
+    return false;
+  }
 }
