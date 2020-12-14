@@ -19,8 +19,9 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
         if (super.get(super.size() - 1).compareTo(element) < 0){
           sortedIndex = super.size();
         }
-        else if (super.get(i).compareTo(element) >= 0){
+        else if (!(element.compareTo(super.get(i)) > 0)){
           sortedIndex = i;
+          break;
       }
     }
   }
