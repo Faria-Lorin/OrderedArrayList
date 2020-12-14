@@ -1,3 +1,4 @@
+import java.util.*;
 public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T>{
   private int sortedIndex;
 
@@ -9,14 +10,21 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     super(startingCapacity);
   }
 
-private void indexFinder(T element){
-    sortedIndex = 0;
-    for ( int i = 0; i < super.size() - 1; i++){
-          if ((this.get(i).compareTo(element) < 0 && this.get(i+1).compareTo(element) > 0) || (this.get(i).compareTo(element) == 0)){
-            sortedIndex = i+1;
-          }
+  private void indexFinder(T element){
+      sortedIndex = 0;
+      if (super.size() == 0){
+          sortedIndex = 0;
+      }
+      for ( int i = 0; i < super.size();i++){
+        if (super.get(super.size() - 1).compareTo(element) < 0){
+          sortedIndex = super.size();
         }
-}
+        else if (super.get(i).compareTo(element) >= 0){
+          sortedIndex = i;
+      }
+    }
+  }
+
 
   public boolean add(T element){
     if (element == null){
